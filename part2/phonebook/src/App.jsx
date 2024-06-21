@@ -86,7 +86,12 @@ const App = () => {
       }, 5000);
       setNewName('')
       setNewNum('')
-    });
+    }).catch(error => {
+      setErrorMessage(error.response.data.error)
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000)
+    })
   } else {
     alert(`${newName} is already added to phonebook`)
   }
